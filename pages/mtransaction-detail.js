@@ -4,17 +4,19 @@ import LandingHeader from "../components/Landing/Header/LandingHeader";
 import AuthContext from "../contexts/AuthContext";
 import AuthDataParser from "../lib/AuthDataParser";
 import classes from "../styles/pages/mtransaction.module.css";
-import LabelTextForm from "../components/ui/LabelTextForm";
+// import LabelTextForm from "../components/ui/LabelTextForm";
 import useFormat from "../hooks/useFormat";
 import formidable from "formidable";
-import LinkTextForm from "../components/UI/LinkTextForm";
+// import LinkTextForm from "../components/UI/LinkTextForm";
+import FormLabelText from "../components/UI/FormLabelText";
+import FormLinkText from "../components/UI/FormLinkText";
 
 const MtransactionDetail = ({ authData, data }) => {
   const auth = useContext(AuthContext);
   const format = useFormat();
 
   const LabelForm45 = ({ label, text }) => (
-    <LabelTextForm label={label} text={text} isOdd={true} labelWidth="45%" />
+    <FormLabelText label={label} text={text} isOdd={true} labelWidth="45%" />
   );
 
   useEffect(() => {
@@ -44,7 +46,7 @@ const MtransactionDetail = ({ authData, data }) => {
             text={data.transDate}
             labelWidth="50%"
           />
-          <LinkTextForm
+          <FormLinkText
             label="Link Pembayaran"
             link={data.stsPayment == "PAID" ? "-" : data.paymentLink}
             labelWidth="15%"

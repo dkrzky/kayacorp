@@ -5,11 +5,12 @@ import FormTextField from "../components/UI/FormTextField";
 import AuthContext from "../contexts/AuthContext";
 import AuthDataParser from "../lib/AuthDataParser";
 import LandingBackdrop from "../components/Landing/Backdrop/LandingBackdrop";
-import LabelTextForm from "../components/UI/LabelTextForm";
+// import LabelTextForm from "../components/UI/LabelTextForm";
 import LandingHeader from "../components/Landing/Header/LandingHeader";
 import { changePasswordRepo } from "../repositories/UserRepository";
 import useScreenInfo from "../hooks/useScreenInfo";
 import DialogMessage from "../components/UI/DialogMessage";
+import FormLabelText from "../components/UI/FormLabelText";
 
 export default function Profile({ authData }) {
   const [submitted, setSubmitted] = useState(false);
@@ -70,17 +71,17 @@ export default function Profile({ authData }) {
       <LandingHeader />
       <div className={classes.form}>
         <label className={classes["form-title"]}>Profile</label>
-        <LabelTextForm
+        <FormLabelText
           label="User Id"
           text={authData.userid}
           labelWidth={isMobile ? "30%" : null}
         />
-        <LabelTextForm
+        <FormLabelText
           label="Full Name"
           text={authData.fullname}
           labelWidth={isMobile ? "30%" : null}
         />
-        <LabelTextForm
+        <FormLabelText
           label="Email"
           text={authData.email}
           labelWidth={isMobile ? "30%" : null}
