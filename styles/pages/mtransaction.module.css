@@ -1,0 +1,45 @@
+.background {
+  display: flex; /* establish flex container */
+  flex-direction: column; /* make main axis vertical */
+  width: 100vw;
+  min-height: 100vh !important;
+  background-image: url("/assets/background/thankyou_background.png");
+  background-repeat: repeat-y;
+  background-size: auto;
+  background-position: center center;
+  background-color: red;
+}
+
+.form {
+  width: 100%;
+  padding: 30px 5px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  /* max-height: 80vh; */
+  padding: 20px;
+  /* height: 80vh; */
+}
+
+.participant-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.participant-details {
+  border: solid 1px rgb(185, 185, 185);
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+.generate-btn {
+  width: 100%;
+  height: 40px;
+  background-color: #d20055;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  line-height: 0px;
+}

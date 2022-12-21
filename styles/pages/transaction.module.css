@@ -1,0 +1,92 @@
+.background {
+  display: flex; /* establish flex container */
+  flex-direction: column; /* make main axis vertical */
+  justify-content: center; /* center items vertically, in this case */
+  align-items: center; /* center items horizontally, in this case */
+  width: 100vw;
+  height: 100vh !important;
+  background-image: url("/assets/background/thankyou_background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.form {
+  padding: 30px 5px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  max-height: 80vh;
+  padding: 20px;
+  height: 80vh;
+  width: 90%;
+  max-width: 800px;
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 15px;
+  border: 1px solid rgb(224, 224, 224);
+  max-height: 72vh;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.transaction-row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 7px;
+  border: #d6d6d6 1px solid;
+  cursor: pointer;
+  padding: 10px 15px;
+  user-select: none;
+}
+
+.transaction-row:hover {
+  background-color: #ebebeb;
+}
+
+.transaction-row .transaction-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.transaction-row label {
+  margin: 0;
+}
+
+.transaction-no {
+  color: darkslategray;
+  font-weight: bold;
+  margin-right: 5px !important;
+}
+
+.transaction-no-mobile {
+  width: 40%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.transaction-amount {
+  border: solid 1px darkgray;
+  border-radius: 5px;
+  padding: 0px 3px;
+  color: gray;
+  margin-right: 5px !important;
+}
+
+.transaction-sts {
+  border-radius: 5px;
+  padding: 0px 3px;
+  color: white;
+}
+
+.transaction-date {
+  margin-left: auto !important;
+}

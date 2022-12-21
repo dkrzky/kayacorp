@@ -1,0 +1,43 @@
+.background {
+  display: flex; /* establish flex container */
+  flex-direction: column; /* make main axis vertical */
+  justify-content: center; /* center items vertically, in this case */
+  align-items: center; /* center items horizontally, in this case */
+  width: 100vw;
+  height: 100vh !important;
+  background-image: url("/assets/background/thankyou_background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.form {
+  width: 90%;
+  padding: 30px 20px 15px 20px;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.form .form-title {
+  font-size: 25px;
+  font-weight: bold;
+  color: darkslategray;
+  margin-bottom: 20px;
+}
+
+.form .change-password-form {
+  position: relative;
+  border: #888 1px solid;
+  border-radius: 7px;
+  padding: 20px 20px;
+  margin-top: 15px !important;
+}
+
+.form .change-password-form .change-password-label {
+  position: absolute;
+  top: -15px;
+  background-color: white;
+  padding: 0 3px;
+}

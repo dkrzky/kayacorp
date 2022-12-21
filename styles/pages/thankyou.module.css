@@ -1,0 +1,24 @@
+.parent {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh !important;
+  background-image: url("/assets/background/thankyou_background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.child {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  top: 49%;
+  transform: translate(-50%, -50%);
+}
+
+.goback {
+  border-radius: 100px;
+  background: white;
+  color: red;
+}

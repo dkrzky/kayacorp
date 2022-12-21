@@ -1,0 +1,75 @@
+.transaction-dialog {
+  position: relative;
+  border-radius: 7px;
+  border: 1px solid rgb(224, 224, 224);
+  padding: 20px;
+  margin: 15px 20px 20px;
+}
+
+.transaction-dialog label {
+  margin: 0;
+}
+
+.transaction-dialog .dialog-label {
+  position: absolute;
+  top: -15px;
+  color: #656464;
+  background-color: white;
+  padding: 0 3px;
+  font-weight: bold;
+}
+
+.participant-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  align-items: stretch;
+  position: relative;
+  border-radius: 7px;
+  border: 1px solid rgb(224, 224, 224);
+  padding: 20px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.participant-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: whitesmoke;
+  padding: 10px 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 7px rgb(0 0 0 / 0.2);
+}
+
+.generate-btn {
+  height: 30px;
+  width: 140px;
+  border-radius: 7px;
+  border: solid 1px darkgray;
+  background: #d20055;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-btn {
+  margin-left: 20px;
+  margin-top: 10px;
+  width: min-content;
+  height: 30px;
+  border: solid 2px #d20055;
+  font-weight: bold;
+  color: #d20055;
+  padding: 4px;
+  border-radius: 5px;
+  line-height: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.close-btn:hover {
+  background-color: #d20055;
+  color: white;
+}
