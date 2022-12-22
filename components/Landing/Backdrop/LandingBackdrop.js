@@ -11,7 +11,7 @@ const LandingBackdrop = (props) => {
         }}
       />
       <br />
-      <p>Tunggu Sebentar...</p>
+      <p style={{ userSelect: "none" }}>Tunggu Sebentar...</p>
     </div>
   );
 };
