@@ -10,10 +10,12 @@ import formidable from "formidable";
 // import LinkTextForm from "../components/UI/LinkTextForm";
 import FormLabelText from "../components/UI/FormLabelText";
 import FormLinkText from "../components/UI/FormLinkText";
+import useScreenInfo from "../hooks/useScreenInfo";
 
 const MtransactionDetail = ({ authData, data }) => {
   const auth = useContext(AuthContext);
   const format = useFormat();
+  const isMobile = useScreenInfo().isMobile;
 
   const LabelForm45 = ({ label, text }) => (
     <FormLabelText label={label} text={text} isOdd={true} labelWidth="45%" />
@@ -35,7 +37,11 @@ const MtransactionDetail = ({ authData, data }) => {
             text={data.transNo}
             labelWidth="50%"
           />
-          <LabelForm45 label="Jumlah Peserta" text={data.pax} labelWidth="50%" />
+          <LabelForm45
+            label="Jumlah Peserta"
+            text={data.pax}
+            labelWidth="50%"
+          />
           <LabelForm45
             label="Status Pembayaran"
             text={data.stsPayment}
@@ -46,11 +52,14 @@ const MtransactionDetail = ({ authData, data }) => {
             text={data.transDate}
             labelWidth="50%"
           />
-          <FormLinkText
-            label="Link Pembayaran"
-            link={data.stsPayment == "PAID" ? "-" : data.paymentLink}
-            labelWidth="15%"
-          />
+          {data.stsPayment != "PAID" && (
+            <FormLinkText
+              label="Link Pembayaran"
+              alias="Klik untuk bayar"
+              link={data.paymentLink}
+              labelWidth="15%"
+            />
+          )}
           <LabelForm45
             label="Total harga"
             text={format.toThousandRupiah(data.amount)}
@@ -80,6 +89,7 @@ const MtransactionDetail = ({ authData, data }) => {
                   name="data"
                   value={JSON.stringify(data.participant)}
                 />
+                <input type="hidden" name="isMobile" value={isMobile} />
                 <input
                   className={"btn " + classes["generate-btn"]}
                   type="submit"
@@ -105,7 +115,6 @@ const MtransactionDetail = ({ authData, data }) => {
                         text={p.nmParticipant}
                         isOdd={false}
                       />
-                      <LabelForm45 label="Email" text={p.email} isOdd={true} />
                       <LabelForm45 label="Kota" text={p.city} isOdd={false} />
                       <LabelForm45 label="No Hp" text={p.phone} isOdd={true} />
                       <LabelForm45
@@ -116,7 +125,7 @@ const MtransactionDetail = ({ authData, data }) => {
                       />
                       <LabelForm45
                         label="Kelamin"
-                        text={p.gender}
+                        text={p.gender.trim() == "M" ? "Pria" : "Wanita"}
                         isOdd={true}
                       />
                       <LabelForm45
@@ -146,6 +155,7 @@ const MtransactionDetail = ({ authData, data }) => {
                           name="data"
                           value={JSON.stringify([p])}
                         />
+                        <input type="hidden" name="isMobile" value={isMobile} />
                         <input
                           className={"btn " + classes["generate-btn"]}
                           type="submit"

@@ -61,7 +61,7 @@ export default function Login() {
         <FormTextField
           ref={usernameRef}
           type="email"
-          label="Email"
+          label="Username atau Email"
           initializeValue={""}
           error={false}
         />
@@ -75,7 +75,7 @@ export default function Login() {
         />
         {warning && <label className="warning">{warning}</label>}
         <div className={"btn col-12 mb-2"} onClick={loginHandler}>
-          Login
+          Masuk
         </div>
         <div className={"row m-0 " + classes["other-options"]}>
           <label onClick={registerHandler}>Daftar</label>

@@ -144,7 +144,7 @@ export default function LandingHeader({ onlyHome }) {
               </label>
               <label onClick={transactionHandler}>Transaksi</label>
               <label style={{ marginBottom: "10px" }} onClick={logoutHandler}>
-                Logout
+                Keluar
               </label>
             </div>
           </div>

@@ -77,7 +77,7 @@ export default function LandingForm(props) {
   return (
     <section id="ts-speakers" className="ts-speakers">
       <div id="ticket-form" className="container">
-        <h1>Form Registration</h1>
+        <h1>Forum Registrasi</h1>
         <br />
         {pesertaCtx.listPeserta.map((d, i) => (
           <FormPerserta

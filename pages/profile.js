@@ -33,7 +33,7 @@ export default function Profile({ authData }) {
     }
 
     if (newPasswordRef.current.value != confirmPasswordRef.current.value) {
-      setWarning("Pastikan password baru sama");
+      setWarning("Pastikan konfirmasi password baru sama");
       return;
     }
 
@@ -43,14 +43,20 @@ export default function Profile({ authData }) {
   const changePasswordHandler = async () => {
     if (!validate()) return;
 
+    setSubmitted(true);
+
     const result = await changePasswordRepo({
       userid: auth.authData.userid,
       oldpassword: oldPasswordRef.current.value,
       newpassword: confirmPasswordRef.current.value,
     });
 
-    if (!result.isSuccess)
+    setSubmitted(false);
+
+    if (!result.isSuccess) {
       setWarning(result.message ?? "Terjadi kesalahan server. (coba lagi)");
+      return;
+    }
 
     oldPasswordRef.current.clear();
     newPasswordRef.current.clear();
@@ -111,7 +117,7 @@ export default function Profile({ authData }) {
             initializeValue={""}
             error={false}
           />
-          {warning && <label className="waning">{warning}</label>}
+          {warning && <label className="warning">{warning}</label>}
           <div className={"btn col m-0 p-0"} onClick={changePasswordHandler}>
             Ubah Password
           </div>

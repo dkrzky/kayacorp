@@ -3,6 +3,7 @@ import Link from "next/link";
 const FormLinkText = ({
   label,
   link,
+  alias,
   labelWidth,
   labelStyle,
   textStyle,
@@ -15,7 +16,7 @@ const FormLinkText = ({
           display: "flex",
           width: labelWidth ?? "20%",
           flex: "none",
-          flexBasis: "45%",
+          // flexBasis: "45%",
         }}
       >
         <label
@@ -53,7 +54,7 @@ const FormLinkText = ({
           rel="noopener noreferrer"
           style={{ color: "blue", wordBreak: "break-word", ...textStyle }}
         >
-          {link}
+          {alias ?? link}
         </Link>
       </div>
     </div>

@@ -1,22 +1,34 @@
 import AuthDataParser from "../../lib/AuthDataParser";
 import base64Image from "../../events/brr/kartu-peserta/base64image";
 import formidable from "formidable";
+import useScreenInfo from "../../hooks/useScreenInfo";
+import { useEffect, useState } from "react";
 
 const KartuPeserta = ({ data }) => {
+  const [style, setStyle] = useState({
+    position: "absolute",
+    width: "1280px",
+    height: "527px",
+    backgroundImage: `url("data:image/png;base64, ${base64Image}")`,
+    backgroundRepeat: "no-repeat",
+    marginBottom: "10px",
+    userSelect: "none",
+  });
+  const isMobile = useScreenInfo().isMobile;
+
+  useEffect(() => {
+    if (isMobile)
+      setStyle({
+        ...style,
+        transform: "rotate(90deg)",
+        left: "-365px",
+        top: "385px",
+      });
+  }, [isMobile]);
+
   return data.map((d, i) => {
     return (
-      <div
-        key={i}
-        style={{
-          position: "relative",
-          width: "1280px",
-          height: "527px",
-          backgroundImage: `url("data:image/png;base64, ${base64Image}")`,
-          backgroundRepeat: "no-repeat",
-          marginBottom: "10px",
-          userSelect: "none",
-        }}
-      >
+      <div key={i} style={style}>
         <label
           style={{
             position: "absolute",
@@ -137,6 +149,7 @@ export async function getServerSideProps({ req }) {
   return {
     props: {
       data: JSON.parse(data.fields.data),
+      isMobile: data.fields.isMobile,
     },
   };
 }
