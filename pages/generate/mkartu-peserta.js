@@ -1,21 +1,18 @@
 import AuthDataParser from "../../lib/AuthDataParser";
-import base64Image from "../../events/brr/kartu-peserta/base64image";
+import base64ImageMobile from "../../events/brr/kartu-peserta/base64image_mobile";
 import formidable from "formidable";
-import useScreenInfo from "../../hooks/useScreenInfo";
 
-const KartuPeserta = ({ data }) => {
+const MKartuPeserta = ({ data }) => {
   const style = {
-    position: "relative",
+    position: "absolute",
     fontFamily: "Josefin Sans",
-    width: "1280px",
-    height: "527px",
-    backgroundImage: `url("data:image/png;base64, ${base64Image}")`,
+    width: "527px",
+    height: "1280px",
+    backgroundImage: `url("data:image/png;base64, ${base64ImageMobile}")`,
     backgroundRepeat: "no-repeat",
     userSelect: "none",
     marginBottom: "20px",
   };
-
-  const isMobile = useScreenInfo().isMobile;
 
   return (
     <div>
@@ -25,13 +22,14 @@ const KartuPeserta = ({ data }) => {
       />
       {data.map((d, i) => {
         return (
-          <div key={i} style={style}>
+          <div key={i} style={{ ...style, top: `${i * 1280 + (i != 0 ? 10 : 0)}px` }}>
             <label
               style={{
                 position: "absolute",
                 fontSize: "30px",
-                left: "50px",
-                top: "120px",
+                left: "375px",
+                top: "50px",
+                writingMode: "vertical-lr",
               }}
             >
               {d.EBib}
@@ -40,8 +38,9 @@ const KartuPeserta = ({ data }) => {
               style={{
                 position: "absolute",
                 fontSize: "30px",
-                left: "50px",
-                top: "200px",
+                left: "300px",
+                top: "50px",
+                writingMode: "vertical-lr",
               }}
             >
               {d.nmParticipant}
@@ -50,8 +49,9 @@ const KartuPeserta = ({ data }) => {
               style={{
                 position: "absolute",
                 fontSize: "30px",
-                left: "50px",
-                top: "355px",
+                left: "145px",
+                top: "50px",
+                writingMode: "vertical-lr",
               }}
             >
               {d.city}
@@ -60,8 +60,9 @@ const KartuPeserta = ({ data }) => {
               style={{
                 position: "absolute",
                 fontSize: "30px",
-                left: "50px",
-                top: "465px",
+                left: "30px",
+                top: "50px",
+                writingMode: "vertical-lr",
               }}
             >
               {d.brr}
@@ -70,8 +71,9 @@ const KartuPeserta = ({ data }) => {
               style={{
                 position: "absolute",
                 fontSize: "30px",
-                left: "450px",
-                top: "355px",
+                left: "145px",
+                top: "450px",
+                writingMode: "vertical-lr",
               }}
             >
               {d.dateEvent}
@@ -80,8 +82,9 @@ const KartuPeserta = ({ data }) => {
               style={{
                 position: "absolute",
                 fontSize: "30px",
-                left: "450px",
-                top: "465px",
+                left: "30px",
+                top: "450px",
+                writingMode: "vertical-lr",
               }}
             >
               {d.timeEvent}
@@ -90,8 +93,9 @@ const KartuPeserta = ({ data }) => {
               style={{
                 position: "absolute",
                 fontSize: "30px",
-                left: "695px",
-                top: "355px",
+                left: "145px",
+                top: "695px",
+                writingMode: "vertical-lr",
               }}
             >
               {d.gender == "M" ? "Pria" : "Wanita"}
@@ -100,8 +104,9 @@ const KartuPeserta = ({ data }) => {
               style={{
                 position: "absolute",
                 fontSize: "30px",
-                left: "695px",
-                top: "465px",
+                left: "30px",
+                top: "695px",
+                writingMode: "vertical-lr",
               }}
             >
               {d.jerseySize}
@@ -113,7 +118,7 @@ const KartuPeserta = ({ data }) => {
   );
 };
 
-export default KartuPeserta;
+export default MKartuPeserta;
 
 export async function getServerSideProps({ req }) {
   const authData = AuthDataParser(req);
@@ -148,7 +153,6 @@ export async function getServerSideProps({ req }) {
   return {
     props: {
       data: JSON.parse(data.fields.data),
-      isMobile: data.fields.isMobile,
     },
   };
 }

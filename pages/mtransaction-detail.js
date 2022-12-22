@@ -80,7 +80,7 @@ const MtransactionDetail = ({ authData, data }) => {
 
               <form
                 target="_blank"
-                action="/generate/kartu-peserta"
+                action="/generate/mkartu-peserta"
                 method="post"
                 style={{ marginBottom: "10px", width: "100%" }}
               >
@@ -146,7 +146,7 @@ const MtransactionDetail = ({ authData, data }) => {
                     {data.stsPayment == "PAID" && (
                       <form
                         target="_blank"
-                        action="/generate/kartu-peserta"
+                        action="/generate/mkartu-peserta"
                         method="post"
                         style={{ marginTop: "10px", width: "100%" }}
                       >
